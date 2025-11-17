@@ -1,0 +1,114 @@
+########################################
+#   ARCHIVOS SENSIBLES Y ENTORNOS
+########################################
+
+# Variables de entorno (nunca dentro del contenedor)
+.env
+.env.*
+*.env
+
+# Virtualenvs locales
+venv/
+.venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+########################################
+#   PYTHON CACHE / COMPILADOS
+########################################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+########################################
+#   CONTROL DE VERSIONES / IDE
+########################################
+
+# GIT
+.git/
+.gitignore
+
+# VSCode
+.vscode/
+
+# JetBrains / PyCharm
+.idea/
+
+# OSX
+.DS_Store
+
+########################################
+#   ARCHIVOS GENERADOS / RUNTIME
+########################################
+
+# Archivos de BD local (solo para evitar que se copien accidentalmente)
+*.db
+*.sqlite3
+db.sqlite3
+db.sqlite3-journal
+
+# Logs
+*.log
+
+# Archivos subidos por usuarios (media NO va en la imagen)
+media/
+
+########################################
+#   FRONTEND / NODE
+########################################
+
+# Node modules (si usás npm/yarn)
+node_modules/
+
+# Dist / build (si usás bundlers)
+dist/
+build/
+
+########################################
+#   PYTHON BUILDS / PACKAGE ARTIFACTS
+########################################
+.eggs/
+*.egg-info/
+*.egg
+wheels/
+share/python-wheels/
+pip-wheel-metadata/
+
+########################################
+#   TEST / CACHE / DOCUMENTACIÓN
+########################################
+.pytest_cache/
+coverage/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Sphinx
+docs/_build/
+
+########################################
+#   OTROS QUE PUEDEN CAUSAR BASURA
+########################################
+*.tmp
+*.swp
+*.bak
+*.orig
+
+########################################
+#   IMPORTANTE — Cosas que NO ignoramos
+########################################
+# (NO agregues estas carpetas al dockerignore)
+#
+#   - tu proyecto Django (apps/)
+#   - manage.py
+#   - requirements.txt / requirements/
+#   - templates/
+#   - static/  (si no hacés collectstatic en el Dockerfile)
+#   - cualquier módulo .py que forme parte del proyecto
+#
+########################################

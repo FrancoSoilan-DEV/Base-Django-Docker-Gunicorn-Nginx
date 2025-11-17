@@ -1,0 +1,26 @@
+✔️ Regla general
+Gunicorn se configura en el Dockerfile.
+Nginx se configura en el docker-compose (o en otro contenedor).
+
+✔️ Por qué es así
+🔹 1. Gunicorn va dentro del contenedor Django
+
+Tu contenedor de Django debe ejecutar Gunicorn al arrancar.
+CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000"]
+
+Eso significa:
+
+El contenedor Django = Python + Gunicorn + tu proyecto.
+GunicornES el servidor WSGI.
+Docker lo ejecuta siempre que se levante el contenedor.
+Esto pertenece al Dockerfile, porque es parte del “cómo se ejecuta el contenedor”.
+
+
+🔹 2. Nginx NO va dentro del contenedor Django
+Nginx debe ser otro contenedor completamente separado, algo como:
+nginx (reverse proxy)
+↓
+gunicorn (Django)
+Nginx se configura en:
+su propio archivo Dockerfile (si lo personalizas), o
+usando la imagen oficial en el docker-compose.yml.
